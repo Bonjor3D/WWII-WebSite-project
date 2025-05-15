@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll Page</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <div id="scroll-container">
+
+    <div class="screen main-slide">
+      <img src="images/main-slide.png" class="main-slide-img">
+      <h1>ВСЕ ДЛЯ ПОБЕДЫ!</h1>
+      <h2>"СЕМЬ ПОДВИГОВ ВЕЛИКОЙ ПОБЕДЫ ЧЕЛОВЕКА И ТЕХНИКИ"</h1>
+    </div>
+
+    <div class="screen 1st-slide">
+        <div class="model-text-wrapper">
+            <model-viewer
+            src="models/gaz-aa.glb"
+            alt="3D GAZ AA"
+            auto-rotate
+            camera-controls
+            camera-orbit="250deg 75deg 3.5m"
+            field-of-view="35deg">
+            </model-viewer>
+
+            <div class="description-text">
+            <h2>Грузовик ГАЗ-АА</h2>
+            <p>Этот автомобиль сыграл ключевую роль в тыловом обеспечении во время войны. Он был простым, надёжным и широко используемым на всех фронтах.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="screen 2nd-slide">
+    </div>
+
+    <div class="screen 3rd-slide">
+    </div>
+
+    <div class="screen 4th-slide">
+    </div>
+
+    <div class="screen 5th-slide">
+    </div>
+
+    <div class="screen 6th-slide">
+    </div>
+
+    <div class="screen 7th-slide">
+    </div>
+
+    <div class="screen last-slide">
+    </div>
+
+  </div>
+
+  <div id="dot-nav"></div>
+  <script src="main.js"></script>
+</body>
+</html>

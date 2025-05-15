@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#scroll-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(.59,.08,0,1);
+  will-change: transform;
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+  background-color: #F8F8F8;
+  scroll-behavior: smooth;
+  padding: 20px;
+  box-sizing: border-box;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.screen::-webkit-scrollbar {
+  display: none;
+}
+
+#dot-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background-color: #ff0000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background-color: #990000;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.main-slide{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #f8f8f8;
+    color: #bb0000;
+    font-size: 24px;
+    text-align: center;
+}
+
+.main-slide h1 {
+  font-size: clamp(2rem, 8.65vw, 10rem);
+  max-width: 90%;
+  line-height: 1.2;
+}
+
+.main-slide h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem); /* чуть меньше, но тоже адаптивно */
+  max-width: 70%;                     /* ограничиваем ширину */
+  line-height: 1.3;
+}
+
+.main-slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(70%);
+}
+
+.main-slide h1,
+.main-slide h2 {
+  position: relative;
+  z-index: 1;
+}
+
+/* Контейнер с моделью и текстом */
+.model-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  flex-wrap: wrap; /* Позволяет переноситься на следующую строку */
+}
+
+/* Сам 3D viewer */
+model-viewer {
+  flex: 2 1 60%;
+  min-width: 100px;
+  height: 500px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Блок с текстом */
+.description-text {
+  flex: 1 1 35%;
+  min-width: 250px;
+  font-family: Arial, sans-serif;
+}
+
+.description-text h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.description-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .model-text-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  model-viewer {
+    width: 100%;
+    height: auto;
+  }
+
+  .description-text {
+    width: 100%;
+  }
+}
