@@ -129,7 +129,6 @@ model-viewer {
   border-radius: 8px;
 }
 
-/* Блок с текстом */
 .description-text {
   flex: 1 1 35%;
   min-width: 250px;
@@ -146,20 +145,44 @@ model-viewer {
   line-height: 1.5;
 }
 
-/* Адаптация под мобильные устройства */
 @media (max-width: 768px) {
   .model-text-wrapper {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 1rem;
+    padding: 1rem;
   }
 
   model-viewer {
     width: 100%;
-    height: auto;
+    height: 50vh;
+    min-height: 300px;
   }
 
   .description-text {
     width: 100%;
+    padding: 0 1rem;
   }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+  opacity: 1;
 }
