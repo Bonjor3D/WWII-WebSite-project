@@ -93,6 +93,22 @@ function init() {
   window.addEventListener("touchend", handleTouchEnd, { passive: true });
 }
 
+const toSecondSlideBtn = document.getElementById("to-second-slide");
+
+function updateDots() {
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+
+  backToTopBtn.style.display = currentIndex !== 0 ? "block" : "none";
+  toSecondSlideBtn.style.display = currentIndex === 0 ? "block" : "none";
+}
+
+toSecondSlideBtn.addEventListener("click", () => {
+  scrollToIndex(1);
+});
+
+
 backToTopBtn.addEventListener("click", () => {
   scrollToIndex(0);
 });
