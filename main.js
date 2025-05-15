@@ -1,6 +1,7 @@
 const container = document.getElementById("scroll-container");
 const screens = document.querySelectorAll(".screen");
 const dotNav = document.getElementById("dot-nav");
+const backToTopBtn = document.getElementById("back-to-top");
 
 let currentIndex = 0;
 let isScrolling = false;
@@ -29,9 +30,16 @@ function updateDots() {
   document.querySelectorAll(".dot").forEach((dot, i) => {
     dot.classList.toggle("active", i === currentIndex);
   });
+  backToTopBtn.style.display = currentIndex !== 0 ? "block" : "none";
+}
+
+function isInsideModelViewer(element) {
+  return element.closest('model-viewer') !== null;
 }
 
 function handleWheel(e) {
+  if (isInsideModelViewer(e.target)) return;
+
   const currentScreen = screens[currentIndex];
   const atTop = currentScreen.scrollTop === 0;
   const atBottom = Math.abs(currentScreen.scrollHeight - currentScreen.clientHeight - currentScreen.scrollTop) < 2;
@@ -56,6 +64,8 @@ function handleTouchStart(e) {
 }
 
 function handleTouchEnd(e) {
+  if (isInsideModelViewer(e.target)) return;
+
   const touchEndY = e.changedTouches[0].clientY;
   const deltaY = touchEndY - touchStartY;
 
@@ -65,12 +75,10 @@ function handleTouchEnd(e) {
     const atBottom = Math.abs(currentScreen.scrollHeight - currentScreen.clientHeight - currentScreen.scrollTop) < 2;
 
     if (deltaY < 0 && atBottom && currentIndex < screens.length - 1) {
-      // свайп вверх
       isScrolling = true;
       scrollToIndex(currentIndex + 1);
       setTimeout(() => isScrolling = false, 1000);
     } else if (deltaY > 0 && atTop && currentIndex > 0) {
-      // свайп вниз
       isScrolling = true;
       scrollToIndex(currentIndex - 1);
       setTimeout(() => isScrolling = false, 1000);
@@ -85,19 +93,8 @@ function init() {
   window.addEventListener("touchend", handleTouchEnd, { passive: true });
 }
 
-init();
-
-const backToTopBtn = document.getElementById("back-to-top");
-
-function updateDots() {
-  document.querySelectorAll(".dot").forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentIndex);
-  });
-
-  // Показывать кнопку, если не первый слайд
-  backToTopBtn.style.display = currentIndex !== 0 ? "block" : "none";
-}
-
 backToTopBtn.addEventListener("click", () => {
   scrollToIndex(0);
 });
+
+init();
