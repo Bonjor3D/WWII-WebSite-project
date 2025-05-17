@@ -128,91 +128,6 @@ body, html {
   z-index: 2;
 }
 
-.descModel-up {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-}
-
-model-viewer {
-  width: 50%;
-  height: 300px;
-  max-width: 100%;
-  flex: 1 1 40%;
-}
-
-.img-Model {
-  width: 40%;
-  margin-top: 100px;
-}
-
-.descText-right {
-  width: 50%;
-  flex: 1 1 50%;
-}
-
-.descText-right h2 {
-  text-align: left;
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.descText-right p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-
-.descModel-down {
-  width: 100%;
-}
-
-.descText-bottom p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  text-align: left;
-}
-
-.text-list {
-  margin-left: 1rem;
-}
-
-@media (max-width: 768px) {
-
-  .descModel-up {
-    display: block;
-  }
-
-  model-viewer {
-    width: 100%;
-    height: 300px;
-  }
-
-  .img-Model {
-    width: 100%;
-    margin-top: 50px;
-  }
-
-  .descText-right {
-    width: 100%;
-  }
-
-  .descText-right h2 {
-    font-size: 26px;
-  }
-
-  .descText-right p,
-  .descText-bottom p {
-    font-size: 16px;
-  }
-}
-
-
 .back-to-top {
   font-family: "Font Awesome Bold";
   position: fixed;
@@ -284,16 +199,147 @@ model-viewer {
   opacity: 0;
 }
 
-.text-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-left: 30px;
-}
-
 .text-list p {
   line-height: 1rem;
 }
 
 .img-slide-tag {
   width: 40px;
+}
+
+/* SLIDES */
+
+.description-text {
+  margin: 30px 60px 90px 60px;
+}
+
+.description-text p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.description-text h2 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.description-text ul {
+  margin-left: 30px;
+}
+
+.description-text img {
+  float: left;
+  width: 35%;
+  margin-top: 30px;
+}
+
+.description-text model-viewer {
+  float: left;
+  width: 35%;
+  min-height: 200px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-right: 30px;
+}
+
+.last-slide {
+  max-height: 100vh;
+  padding: 0;
+}
+
+.down-panel {
+  position: relative;
+  top: 80%;
+  width: 100%;
+  height: 20%;
+  background-color: #ff0000;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 1);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+  padding: 20px;
+  color: white;
+  gap: 40px;
+}
+
+.footer-container strong {
+  margin-left: 4%;
+  font-size: 120%;
+}
+
+.footer-container a:hover {
+  color: #ffcc00;
+}
+
+.footer-container a, .footer-links strong {
+  margin-left: 5%;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 100%;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+.footer-links strong {
+  margin-left: 4%;
+  font-size: 120%;
+}
+
+.footer-links a, .footer-links strong {
+  margin-left: 5%;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffcc00;
+}
+
+.footer-reply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 100%;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
+
+/* FOR PHONE */
+
+@media (max-width: 768px) {
+  .description-text {
+    margin: 30px 20px 90px 20px;
+  }
+
+  .description-text img {
+    width: 100%;
+    margin-top: 8.5%;
+  }
+
+  .description-text model-viewer {
+    width: 100%;
+    min-height: 300px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
 }
