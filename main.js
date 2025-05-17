@@ -18,13 +18,30 @@ function createDots() {
   });
 }
 
+function updateSlideTags(currentIndex) {
+  const tags = document.querySelectorAll(".slide-tag");
+  tags.forEach(tag => {
+    const slideNumber = parseInt(tag.getAttribute("slide"));
+    if (slideNumber === currentIndex) {
+      tag.classList.add("visible");
+      tag.classList.remove("hidden");
+    } else {
+      tag.classList.remove("visible");
+      tag.classList.add("hidden");
+    }
+  });
+}
+
+
 function scrollToIndex(index) {
   if (index < 0 || index >= screens.length) return;
   currentIndex = index;
   const offset = -index * window.innerHeight;
   container.style.transform = `translateY(${offset}px)`;
   updateDots();
+  updateSlideTags(currentIndex);
 }
+
 
 function updateDots() {
   document.querySelectorAll(".dot").forEach((dot, i) => {
@@ -88,6 +105,7 @@ function handleTouchEnd(e) {
 
 function init() {
   createDots();
+  updateSlideTags(currentIndex);
   window.addEventListener("wheel", handleWheel, { passive: false });
   window.addEventListener("touchstart", handleTouchStart, { passive: true });
   window.addEventListener("touchend", handleTouchEnd, { passive: true });
