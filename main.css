@@ -385,4 +385,20 @@ body, html {
     margin-bottom: 20px;
     margin-right: 0;
   }
+
+  .heroic-img-l {
+    float: left;
+    margin: 0 20px 20px 0;
+    min-width: 90%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .heroic-img-r {
+    float: right;
+    margin: 0 0 20px 20px;
+    min-width: 90%;
+    height: auto;
+    border-radius: 8px;
+  }
 }
