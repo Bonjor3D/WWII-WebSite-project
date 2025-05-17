@@ -42,14 +42,6 @@ function scrollToIndex(index) {
   updateSlideTags(currentIndex);
 }
 
-
-function updateDots() {
-  document.querySelectorAll(".dot").forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentIndex);
-  });
-  backToTopBtn.style.display = currentIndex !== 0 ? "block" : "none";
-}
-
 function isInsideModelViewer(element) {
   return element.closest('model-viewer') !== null;
 }
