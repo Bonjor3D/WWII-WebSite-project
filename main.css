@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: "Font Awesome Bold";
     src: url(fonts/fa-solid-900.ttf) format("truetype");
@@ -211,6 +212,7 @@ body, html {
 
 .description-text {
   margin: 30px 60px 90px 60px;
+  z-index: 2;
 }
 
 .description-text p {
@@ -326,6 +328,7 @@ body, html {
   margin: 30px 60px 90px 60px;
   font-size: 1.1rem;
   line-height: 1.6;
+  z-index: 2;
 }
 
 .heroic-history h2 {
@@ -389,7 +392,7 @@ body, html {
   .heroic-img-l {
     float: left;
     margin: 0 20px 20px 0;
-    min-width: 90%;
+    min-width: 50%;
     height: auto;
     border-radius: 8px;
   }
@@ -397,8 +400,23 @@ body, html {
   .heroic-img-r {
     float: right;
     margin: 0 0 20px 20px;
-    min-width: 90%;
+    min-width: 50%;
     height: auto;
     border-radius: 8px;
   }
+}
+
+p {
+  font-family: 'Jost', serif;
+  z-index: 2;
+}
+
+h1, h2 {
+  font-family: 'Exo 2', serif;
+  z-index: 2;
+}
+
+ul {
+  font-family: 'Exo 2', serif;
+  z-index: 2;
 }
