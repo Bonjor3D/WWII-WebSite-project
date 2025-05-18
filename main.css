@@ -31,13 +31,15 @@ body, html {
   height: 100vh;
   overflow-y: auto;
   flex-shrink: 0;
-  background-color: #F8F8F8;
   scroll-behavior: smooth;
   padding: 20px;
   box-sizing: border-box;
 
   scrollbar-width: none;
   -ms-overflow-style: none; 
+
+  background-image: url("images/bg.png");
+  background-attachment: local;
 }
 
 .screen::-webkit-scrollbar {
@@ -108,7 +110,7 @@ body, html {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(50%) blur(3px);
+  filter: brightness(50%);
 }
 
 .img-main-shadow{
@@ -370,6 +372,7 @@ body, html {
 @media (max-width: 768px) {
   .description-text {
     margin: 30px 20px 90px 20px;
+    z-index: 3;
   }
 
   .heroic-history {
