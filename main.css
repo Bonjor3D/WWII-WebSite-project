@@ -337,6 +337,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  color: #fff;
   height: 100%;
   gap: 5px;
   font-size: 1.2rem;
@@ -461,18 +462,34 @@ body, html {
 p {
   font-family: 'Jost', serif;
   font-weight: 500;
+  color: #ff0000;
   z-index: 2;
 }
 
 h1, h2 {
   font-family: 'Exo 2', serif;
   font-weight: 800;
+  color:#700000;
   z-index: 2;
 }
 
 ul {
   font-family: 'Exo 2', serif;
   font-weight: 600;
+  color: #ff0000;
   z-index: 2;
 }
 
+strong {
+  font-family: 'Exo 2', serif;
+  font-weight: 800;
+  color: #700000;
+  z-index: 2;
+}
+
+a {
+  font-family: 'Exo 2', serif;
+  font-weight: 600;
+  color: #ff6600;
+  z-index: 2;
+}
