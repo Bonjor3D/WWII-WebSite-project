@@ -84,7 +84,6 @@ body, html {
     max-width: 100%;
     max-height: 100%;
     background-color: #f8f8f8;
-    color: #700000;
     font-size: 24px;
     text-align: center;
 }
@@ -92,6 +91,7 @@ body, html {
 .main-slide h1 {
   font-size: clamp(2rem, 8.65vw, 10rem);
   max-width: 90%;
+  color: #700000;
   line-height: 1.2;
   bottom: 25%;
 }
@@ -386,17 +386,17 @@ body, html {
 }
 
 .video-container {
-  display: flexbox;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Центрирование по всей высоте экрана */
+  flex-direction: row;
   width: 100%;
-  background-color: #000; /* опционально */
 }
 
 .video-container iframe {
-  width: 80vw;
-  height: 45vw;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 40%;
   border-radius: 10px;
   border: none;
 }
@@ -440,6 +440,18 @@ body, html {
     min-width: 50%;
     height: auto;
     border-radius: 8px;
+  }
+
+  .video-container {
+    display: block;
+    width: 100%;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: none;
   }
 }
 
