@@ -210,8 +210,7 @@ body, html {
 }
 
 .img-slide-tag {
-  width: 40px;
-  transform: scale(4);
+  width: 60px;
 }
 
 /* SLIDES */
@@ -453,6 +452,10 @@ body, html {
     height: auto;
     border-radius: 10px;
     border: none;
+  }
+
+  .img-slide-tag {
+    width: 40px;
   }
 }
 
