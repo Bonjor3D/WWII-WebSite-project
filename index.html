@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ВСЕ ДЛЯ ПОБЕДЫ</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -19,6 +23,14 @@
     button {
       background: transparent;
       border: transparent;
+    }
+
+    p {
+      font-family: "SN Pro", sans-serif;
+    }
+
+    h1 {
+      font-family: "SN Pro", sans-serif;
     }
 
     /* ===== HeaderBar ===== */
@@ -72,6 +84,11 @@
 
     /* ===== ScrollDots ===== */
     .scroll-dots {
+      padding: 6px 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
       position: fixed;
       right: 24px;
       top:50%;
@@ -91,18 +108,30 @@
       box-shadow: inset 0 -40px 8px #e6e6e6;
       position: relative;
       height: 100vh;
-      background-image: url('assets/imgs/hero-bg.jpg'); /* фон */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed; /* параллакс эффект */
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color:#fff;
     }
-    .hero-content h1 { font-size:64px; margin:0; letter-spacing:0.05em; color: #880808; font-weight: 900; } 
-    .hero-content p { font-size:28px; margin-top:12px; color: #ac0a0a; font-weight: 700; }
+    .parallax-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/imgs/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: blur(var(--blur, 0px));
+      transition: filter 0.1s linear;
+      z-index: 1;
+    } 
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 { font-size:120px; margin:0; letter-spacing:0.05em; color: #880808; font-weight: 900; z-index: 19; font-family: "Pangolin", cursive; text-shadow: 0px 0px 8px #650606; } 
+    .hero-content p { font-size:48px; margin-top:12px; color: #ac0a0a; font-weight: 700;  z-index: 19; font-family: "Pangolin", cursive; text-shadow: 0px 0px 8px #650606; }
     
     /* ===== ExpandableContent ===== */
     .expandable-wrapper { position:relative; }
@@ -121,14 +150,14 @@
 
     /* ===== PersonBlock ===== */
     .person-block { position:relative; margin:160px 0; padding:30px; box-shadow: 0px 0px 16px 2px #000; background-image: url('./assets/imgs/main-bg2.png'); background-repeat: repeat; color:#fff; overflow:hidden; border-radius:12px; max-width: 1200px; left: 50%; transform: translateX(-50%); border: solid 4px #fff; }
-    .person-header { display:flex; align-items:center; justify-content:space-around; position:relative; }
-    .person-name { font-size:22px; font-weight:600; z-index:2; }
+    .person-header { display:flex; align-items:center; justify-content:space-around; position:relative; font-family: "Pangolin", cursive; font-size: 72px; }
+    .person-name { font-size:48px; font-weight:600; z-index:2; }
     .image-overflow img { width:256px; height:256px; object-fit:cover; position:relative; margin-left:20px; top: -10px; z-index: 10; filter: drop-shadow(0px 0px 12px #000); }
 
     /* ===== VehicleBlock ===== */
     .vehicle-block { position:relative; margin:160px 0; padding:20px; box-shadow: 0px 0px 16px 2px #000; background-image: url('./assets/imgs/main-bg2.png'); background-repeat: repeat; color:#fff; overflow:hidden; border-radius:12px; max-width: 1200px; left: 50%; transform: translateX(-50%); border: solid 4px #fff; }
-    .vehicle-header { display:flex; align-items:center; justify-content:space-around; margin-bottom:12px; position: relative; overflow: hidden; }
-    .vehicle-name { font-size:32px; font-weight:600; z-index:2; }
+    .vehicle-header { display:flex; align-items:center; justify-content:space-around; margin-bottom:12px; position: relative; overflow: hidden; font-family: "Pangolin", cursive; font-size: 120px; }
+    .vehicle-name { font-size:64px; font-weight:600; z-index:2; }
     .vehicle-specs { display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; margin-bottom:12px; }
     .spec-item { background: rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; display:flex; gap:6px; font-size:13px; }
     .spec-name { font-weight:600; } .spec-value { font-weight:400; }
@@ -166,6 +195,10 @@
       <li class="side-nav-item" data-target="bm-13">БМ-13 «Катюша»</li>
       <li class="side-nav-item" data-target="t34-85">Т34-85</li>
       <li class="side-nav-item" data-target="la-5">ЛА-5</li>
+      <li class="side-nav-item" data-target="61-k">61-K</li>
+      <li class="side-nav-item" data-target="person-flerov">Иван Андреевич Флёров</li>
+      <li class="side-nav-item" data-target="person-lavrinenko">Дмитрий Фёдорович Лавриненко</li>
+      <li class="side-nav-item" data-target="person-koshedub">Иван Никитович Кожедуб</li>
     </ul>
   </div>
 
@@ -176,6 +209,10 @@
     <button class="scroll-dot" data-target="bm-13"><div class="dot"></div></button>
     <button class="scroll-dot" data-target="t34-85"><div class="dot"></div></button>
     <button class="scroll-dot" data-target="la-5"><div class="dot"></div></button>
+    <button class="scroll-dot" data-target="61-k"><div class="dot"></div></button>
+    <button class="scroll-dot" data-target="person-flerov"><div class="dot"></div></button>
+    <button class="scroll-dot" data-target="person-lavrinenko"><div class="dot"></div></button>
+    <button class="scroll-dot" data-target="person-koshedub"><div class="dot"></div></button>
   </div>
 
   <!-- ===== ParallaxHero ===== -->
@@ -380,6 +417,7 @@
 
   <div class="vehicle-block" id="61-k">
     <div class="vehicle-header">
+      <img class="header-bg" src="./assets/imgs/bg's/k61-bg.png">
       <div class="vehicle-name">61-К</div>
       <div class="image-overflow">
         <img src="./assets/imgs/vehicles/61-k.png" alt="61-k">
@@ -422,6 +460,7 @@
 
   <div class="person-block" id="person-flerov">
     <div class="person-header">
+      <img class="header-bg" src="./assets/imgs/bg's/bm-13-bg.png">
       <div class="person-name">Иван Андреевич Флёров</div>
       <div class="image-overflow">
         <img src="./assets/imgs/persons/flerov.png" alt="Иван Андреевич Флёров">
@@ -445,6 +484,7 @@
 
   <div class="person-block" id="person-lavrinenko">
     <div class="person-header">
+      <img class="header-bg" src="./assets/imgs/bg's/t34-85-bg.png">
       <div class="person-name">Дмитрий Фёдорович Лавриненко</div>
       <div class="image-overflow">
         <img src="./assets/imgs/persons/lavrinenko.png" alt="Дмитрий Лавриненко">
@@ -464,7 +504,26 @@
     </div>
   </div>
 
-
+  <div class="person-block" id="person-koshedub">
+    <div class="person-header">
+      <img class="header-bg" src="./assets/imgs/bg's/la-5-bg.png">
+      <div class="person-name">Иван Никитович Кожедуб</div>
+      <div class="image-overflow">
+        <img src="./assets/imgs/persons/koshedub.png" alt="Никитович Кожедуб">
+      </div>
+    </div>
+    <div class="devider"></div>
+    <div class="expandable-wrapper">
+      <div class="expandable-content expandable-inner">
+        <p>Именно на Ла-5ФН во время боев на Курской дуге открыл свой боевой счет Иван Никитович Кожедуб - будущий трижды Герой Советского Союза и один из двух самых результативных советских летчиков времен войны. Здесь он набрал больше всего побед — 47, поскольку остальные 15 он одержал, воюя уже на Ла-7, последней и лучшей модификации легендарного истребителя.</p>
+        <p>Первый воздушный бой Иван Кожедуб провел на Ла-5 в марте 1943 года. В паре с ведущим, он должен был охранять аэродром, но взлетев, летчик потерял из вида второй самолет, получил повреждения от противника, а затем попал еще и под свою зенитную артиллерию. Кожедуб с трудом посадил самолет, в котором насчитали более 50 пробоин. Боевой счет своим победам летчик-ас открыл 6 июля 1943 года на Курской дуге, сбив пикирующий бомбардировщик Ju-87. С мая 1944 года Кожедуб воевал на новой модификации истребителя Лавочкина – Ла-5ФН (бортовой № 14), который был построен на деньги колхозника-пчеловода Сталинградской области Василия Конева. Уже на следующий день Кожедуб одержал вторую воздушную победу, сбив еще один Ju-87, а в воздушном бою 9 июля смог сбить сразу 2 немецких истребителя Me-109. В течение шести последующих дней летчик-ас записывает на свой счет ещё 7 вражеских самолётов. Уже в августе 1943 года Иван Кожедуб становится командиром эскадрильи. Первое звание Героя Советского Союза с вручением ордена Ленина и медали «Золотая Звезда» командир эскадрильи старший лейтенант Иван Кожедуб получил 4 февраля 1944 года за 146 боевых вылетов, в которых он сбил 20 немецких самолетов. В это же время полк проходит процедуру перевооружения, получая новые истребители Ла-7. Летчику-асу достался самолёт с бортовым № 27. Иван Кожедуб будет летать на нем до самого конца войны. Второй медалью «Золотая Звезда» гвардии капитан Иван Кожедуб был награжден 19 августа 1944 года за 256 совершенных боевых вылетов, в которых он лично сбил 48 немецких самолетов. Однажды во время воздушного боя, который проходил над территорией противника, самолет Ивана Кожедуба был подбит. На машине заглох двигатель и он, чтобы не сдаваться в плен немцам, выбрал для себя на земле цель и начал на нее пикировать. Когда до земли оставалось совсем немного, двигатель истребителя неожиданно снова заработал и Кожедуб смог вывести машину из пикирования и благополучно вернулся на аэродром. 12 февраля 1945 года Иван Кожедуб в паре со своим ведомым лётчиком патрулировали пространство над передним краем, находясь в режиме «свободной охоты». Обнаружив группу из 13 истребителей FW-190, советские летчики немедленно атаковали их, сбив при этом 5 немецких истребителей. Три из них записал на свой счет Иван Кожедуб. 15 февраля 1945 года в полете над Одером легендарный лётчик смог сбить немецкий реактивный истребитель Me-262.</p>
+        <p>К концу Великой Отечественной войны гвардии майор Иван Никитович Кожедуб выполнил 330 боевых вылетов и провел 120 воздушных боев, сбив при этом 64 самолета противника, что стало лучшим достижением среди всех советских асов. Третью «Золотую Звезду» лётчик-герой получил уже после войны за высокое воинское мастерство, личное мужество и отвагу. Рассказывают, что Иван Кожедуб очень любил свои самолеты, особенно свой первенец Ла-5, считал их «живыми». Ни разу за всю войну легендарный лётчик не покинул свою машину, даже горящую.</p>
+      </div>
+      <button class="expand-button" onclick="toggleExpand(this)">
+        <div class="arrow"></div>
+      </button>
+    </div>
+  </div>
 
   <!-- ===== JS ===== -->
   <script>
@@ -526,7 +585,7 @@
 
     // Обновление активной точки при скролле
     function updateActiveDot(){
-      const blocks = ['hero', 'gaz-aa','bm-13', 't34-85', 'la-5'];
+      const blocks = ['hero', 'gaz-aa','bm-13', 't34-85', 'la-5', '61-k', 'person-flerov', 'person-lavrinenko', 'person-koshedub'];
       let scrollPos = window.scrollY + window.innerHeight/1.5;
       let activeId = blocks[0];
 
@@ -554,6 +613,15 @@
         }
       });
     }
+
+    const hero = document.querySelector('.parallax-hero');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const blur = Math.min(scrollY / 120, 12); // максимум 12px
+
+      hero.style.setProperty('--blur', `${blur}px`);
+    });
 
     window.addEventListener('scroll', updateActiveDot);
     window.addEventListener('load', updateActiveDot);
